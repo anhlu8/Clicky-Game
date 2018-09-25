@@ -6,6 +6,14 @@ import Title from "./components/Title";
 import Wrapper from "./components/Wrapper";
 const uuidv4 = require("uuid/v4");
 
+const newCards = function everydayImShuffling (cards){
+  for (let i = cards.length - 1; i > 0; i--) {
+    let j = Math.floor(Math.random() * (i + 1));
+    [cards[i], cards[j]] = [cards[j], cards[i]];
+  };
+  return cards;
+};
+
 class App extends Component {
   state = {
     cards,
@@ -16,15 +24,13 @@ class App extends Component {
   };
 
   handleClick = id => {
-    console.log("id", id);
-    console.log(typeof id);
-    console.log("you clicked me!");
     if (this.state.clicked.indexOf(id) === -1) {
       this.handleIncrement();
       this.setState({ clicked: this.state.clicked.concat(id) });
     } else {
       this.handleReset();
     }
+    
   };
 
   handleIncrement = () => {
@@ -34,9 +40,7 @@ class App extends Component {
       this.setState({ topScore: newScore, answerResults: "Correct" });
     } else if (newScore === 12) {
       this.setState({ answerResults: "You Win" });
-    } else {
-      this.setState({ answerResults: "Wrong. Let's Try Again!" });
-    }
+    } 
     this.handleShuffle();
   };
 
@@ -50,15 +54,9 @@ class App extends Component {
     this.handleShuffle();
   };
 
-  handleShuffle = cards => {
-    let newCards = cards => {
-      for (let i = cards.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [cards[i], cards[j]] = [cards[j], cards[i]];
-      }
-      return cards;
-    };
-    return newCards;
+  handleShuffle = () => {
+      newCards(cards);
+      this.setState({cards});
   };
 
   render() {

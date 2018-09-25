@@ -12,16 +12,16 @@ const Title = ({ currentScore, topScore, answerResults }) => (
     <ul>
       <li>
         Current score:
-        {currentScore}
+        <span>{currentScore}</span>
       </li>
       <li>
         <span>|</span> Top score:
-        {topScore}
+        <span>{topScore}</span>
       </li>
     </ul>
     <p>
       Your answer is:
-      {answerResults}
+      <span>{answerResults}</span>
     </p>
   </div>
 );
