@@ -7,9 +7,7 @@ const Card = ({ image, name, id, handleClick }) => (
       <img src={image} alt={name} onClick={() => handleClick(id)} />
     </div>
     <div className="content">
-      <p>
-        <strong>{name}</strong>
-      </p>
+      <p style={{ textAlign: "center", color: "black" }}>{name}</p>
     </div>
   </div>
 );

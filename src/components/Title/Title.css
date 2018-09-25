@@ -7,10 +7,24 @@
     margin-bottom: 50px;
 }
 
-ul {
+ul,
+p {
     list-style: none;
+    color: white
 }
 
 ul li {
     display: inline;
+}
+
+span {
+    margin-left: 15px;
+}
+
+hr {
+    width: 80%;
+}
+
+h6 {
+    margin-top: 0;
 }

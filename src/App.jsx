@@ -16,6 +16,9 @@ class App extends Component {
   };
 
   handleClick = id => {
+    console.log("id", id);
+    console.log(typeof id);
+    console.log("you clicked me!");
     if (this.state.clicked.indexOf(id) === -1) {
       this.handleIncrement();
       this.setState({ clicked: this.state.clicked.concat(id) });
@@ -33,8 +36,8 @@ class App extends Component {
       this.setState({ answerResults: "You Win" });
     } else {
       this.setState({ answerResults: "Wrong. Let's Try Again!" });
-      this.handleShuffle();
     }
+    this.handleShuffle();
   };
 
   handleReset = () => {
@@ -61,11 +64,11 @@ class App extends Component {
   render() {
     return (
       <Wrapper>
-        <Title>
-          {this.state.currentScore}
-          {this.state.topScore}
-          {this.state.answerResults}
-        </Title>
+        <Title
+          currentScore={this.state.currentScore}
+          topScore={this.state.topScore}
+          answerResults={this.state.answerResults}
+        />
 
         {this.state.cards.map(card => (
           <Card
