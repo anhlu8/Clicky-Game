@@ -11,3 +11,6 @@ A memory game with React. The application keeps track of the user's score. The u
 * React.js
 * Node.js
 
+## Deployed page: https://anhlu8.github.io/Clicky-Game/
+
+
